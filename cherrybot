@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#CherryBot local system search - develop by emmanuelbreyaue 
+#Version 0.05 Alpha
+#emmanuelbreyaue@gmail.com
+clear
+#pht=${PWD}
+pht="/home/emmanuel/documentos/"
+
+	./logo.sh
+
+	echo "Hello "${USER}" - Enter your Search"
+	read keyword
+
+	echo -e "\e[49;44m" "Directories Found"
+	echo -e "\e[49m"
+
+	ty=1
+	dir=$(search_by_files_dir.sh $pht $keyword $ty)
+	echo $dir
+
+	echo -e "\e[49;44m" "Files Found"
+	echo -e "\e[49m"
+
+	ty=0
+	files=$(search_by_files_dir.sh $pht $keyword $ty)
+	echo $files
+
+	echo -e "\e[49;44m" "Word in Files Found"
+	echo -e "\e[49m"
+	./get_list_files.sh $pht $keyword
+
+
