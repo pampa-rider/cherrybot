@@ -4,8 +4,8 @@
 #Version 0.05 Alpha
 #emmanuelbreyaue@gmail.com
 clear
-#pht=${PWD}
-pht="/home/emmanuel/documentos/"
+pht=${PWD}
+#pht="/home/${USER}/"
 
 	./logo.sh
 
