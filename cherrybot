@@ -1,33 +1,116 @@
 #!/bin/bash
-
 #CherryBot local system search - develop by emmanuelbreyaue 
-#Version 0.05 Alpha
+#Version 0.07 
 #emmanuelbreyaue@gmail.com
-clear
-pht=${PWD}
-#pht="/home/${USER}/"
 
-	./logo.sh
 
-	echo "Hello "${USER}" - Enter your Search"
-	read keyword
+type=$1
+keyword=$2
+path=$3
 
-	echo -e "\e[49;44m" "Directories Found"
-	echo -e "\e[49m"
 
-	ty=1
-	dir=$(search_by_files_dir.sh $pht $keyword $ty)
-	echo $dir
+function check_dir()
+{
+if [ -f $path ];then
+exit
+fi
+}
 
-	echo -e "\e[49;44m" "Files Found"
-	echo -e "\e[49m"
+function ver()
+{
+echo "
+Ux Local System Search - Develop by Pampa-Rider
+Under GPL License
+Version 0.07
+http://github.com/pampa-rider/cherrybot
+"
+}
 
-	ty=0
-	files=$(search_by_files_dir.sh $pht $keyword $ty)
-	echo $files
 
-	echo -e "\e[49;44m" "Word in Files Found"
-	echo -e "\e[49m"
-	./get_list_files.sh $pht $keyword
+function define_path()
+{
+	if [[ -z $path ]];	
+	then
+	echo ""
+	#echo ${PWD}
+	else
+	check_dir
+	#echo $path
+	fi
+	#echo $type
+	#echo $keyword
+}
+
+
+function option_type()
+{
+case $type in
+(-f)
+list=$(./get-list.sh $type $path)
+make-search
+;;
+
+(-d)
+list=$(./get-list.sh $type $path)
+make-search
+;;
+
+(-fd)
+list=$(./get-list.sh $type $path)
+make-search
+;;
+
+(-fnf)
+#list=$(./get-list.sh -f $path)
+./search-doc.sh $path $keyword
+;;
+
+(-ver)
+#logo
+ver
+;;
+
+(-?)
+info_help
+;;
+
+
+(*)
+info_help
+exit
+;;
+
+esac
+
+
+#-f buscar archivos
+#-d .. directorios1
+#-fd .. archivos y directorios
+#-fnf .. en el interior de todos los archivos que contenga el eqiipo.
+ 
+}
+
+function make-search()
+{
+for k in $list;do
+./get-search.sh $keyword $k
+done
+} 
+
+function info_help()
+{
+echo "
+Sintaxys: -x keyword /folder/subfolder
+
+-f search files
+-d .. search directories 
+-fd .. search files and dir 
+-fnf .. search inside the files."
+}
+
+echo -e "\e[44m"$path"\e[49m"
+option_type
+define_path
+
 
 
