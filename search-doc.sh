@@ -2,7 +2,7 @@
 
 #CherryBot local system search - develop by pampa_rider
 #Version 0.07 
-#http://github.com/pampa-rider
+#http://github.com/pampa-rider/cherrybot
 
 filename=$1
 keyword=$2
