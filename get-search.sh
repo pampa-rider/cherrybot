@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#CherryBot local system search - develop by pampa_rider
+#CherryBot local system search - Develop by pampa-rider
 #Version 0.07 
-#http://github.com/pampa-rider
+#http://github.com/pampa-rider/cherrybot
 
 
 keyword=$1
