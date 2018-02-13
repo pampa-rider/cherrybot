@@ -1,5 +1,5 @@
 # cherrybot
-Local System Search
+Linux Local System Search
 **Search Files**
 
 `$cherrybot -f file /user/directory/example` 
