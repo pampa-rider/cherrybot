@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#CherryBot local system search - develop by pampa_rider
+#CherryBot Linux Local System Search - Develop by pampa_rider
 #Version 0.07 
 #http://github.com/pampa-rider/cherrybot
 
